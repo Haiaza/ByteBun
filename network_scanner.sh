@@ -16,3 +16,7 @@ nmap_result=$(nmap -T4 -F $TARGET)
 
 # Save the output
 echo "$nmap_result" > $OUTPUT_FILE
+
+# Parse the results 
+open_ports=$(echo "$nmap_result" | grep 'open' | awk '{print $1}' | cut -d'/' -f1)  
+# Checking for 'Open' ports, filtering for the column with the port number,  removing the protocol part of the port.
