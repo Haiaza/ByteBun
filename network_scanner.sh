@@ -39,3 +39,5 @@ echo "$open_ports" >> $OUTPUT_FILE
         *) echo "Port $port: Research recommended security config for this port" ;;
     esac
 done >> $OUTPUT_FILE
+
+echo -e "\nScan complete!  Report saved to $OUTPUT_FILE"
