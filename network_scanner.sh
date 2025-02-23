@@ -5,8 +5,8 @@ TARGET="127.0.0.1" # setting this to local host
 OUTPUT_FILE="security_report_$(date + %Y%m%d%H%M).txt"
 
 echo "(\__/)  
-(•ㅅ•)   🥕 Running network security scan...!  
-/ 　 づ  
+(•ㅅ•)   🥕 ByteBun is searching for carrots....
+/ 　 づ         and running a network scan i suppose...!
 ━━━∪━━━━━━  "
 echo "Target: $TARGET"
 echo "============================="

@@ -1,0 +1,4 @@
+what i did not include in the comments what making the shell file an executable
+i used 'chmod +x network_scanner.sh' to give my file execute permission. 
+this can be used on anything that has 'executable' code or has an interpretive directive like this file.
+ex : '#!/usr/bin/python3'   for a python script
