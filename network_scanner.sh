@@ -9,7 +9,7 @@ echo "(\__/)
 / 　 づ  
 ━━━∪━━━━━━  "
 echo "Target: $TARGET"
-echo"========================="
+ech0 "========================="
 
 # Running an nmap scan
 nmap_result=$(nmap -T4 -F $TARGET)
