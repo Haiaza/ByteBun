@@ -27,3 +27,15 @@ echo "Scan Date: $(date)" >> $OUTPUT_FILE
 echo "Scanned IP: $TARGET" >> $OUTPUT_FILE
 echo  -e  "\nOpen Ports Detected:" >> $OUTPUT_FILE # here and above they are being used for formatting
 echo "$open_ports" >> $OUTPUT_FILE
+
+ # Basic vulnerability check
+ echo -e "\nCommon Vulnerabilties to Check:" >> $OUTPUT_FILE
+ echo "$open_ports" | while read port; do
+    case $port in
+        21) echo "FTP (Port 21): Ensure anonymous login is disabled" ;;
+        22) echo "SSH (Port 22): Check for weak passwords/outdared versions" ;;
+        80 | 443) echo "HTTP(S) (Port $port): Look for outdated web servers" ;;
+        3389) echo "RDP (Port 3389): Ensure proper authentication" ;;
+        *) echo "Port $port: Research recommended security config for this port" ;;
+    esac
+done >> $OUTPUT_FILE
