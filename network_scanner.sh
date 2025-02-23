@@ -20,3 +20,10 @@ echo "$nmap_result" > $OUTPUT_FILE
 # Parse the results 
 open_ports=$(echo "$nmap_result" | grep 'open' | awk '{print $1}' | cut -d'/' -f1)  
 # Checking for 'Open' ports, filtering for the column with the port number,  removing the protocol part of the port.
+
+# Generating the report
+echo -e "\nSecurity Report Summary" >> $OUTPUT_FILE # the -e flag enables me to use "e"scape characters like newline
+echo "Scan Date: $(date)" >> $OUTPUT_FILE
+echo "Scanned IP: $TARGET" >> $OUTPUT_FILE
+echo  -e  "\nOpen Ports Detected:" >> $OUTPUT_FILE # here and above they are being used for formatting
+echo "$open_ports" >> $OUTPUT_FILE
