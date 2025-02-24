@@ -1,0 +1,22 @@
+So im going to be making a Service Health Monitor-er & Auto-Healer
+Why:  
+    Practicing Sys Admin skills
+    Automation + monitoring combined
+    Some Kali tools
+
+How:
+ Setup "vulnerable servce"
+ Make a monitoring script
+ make an executable
+ make a Cron Job to setup automated execution
+
+ What i will be using to complete the Job:
+  systemctl - service management
+  ss - network socket inspection
+  grep - analyzing the log
+  version checking in the script
+  cron job scheduling
+  basic attack pattern recognition
+
+Safety note : remove the test apache version after practice
+sudo apt purge apache2
