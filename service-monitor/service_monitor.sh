@@ -22,3 +22,9 @@ else
     echo "[-] Service Status: NOT RUNNING!" >> $REPORT_FILE
     systemctl start $SERVICE && echo "Service restarted" >> $REPORT_FILE
 fi  # fi denotes the end of 'if' logic code, including the else.
+
+# Open Ports : Check 2
+echo -e '\nOpen Ports:' >> $REPORT_FILE
+ss -tulpn | grep ':80' >> $REPORT_FILE
+# 'tulpn' is a mix of flags  | https://www.geeksforgeeks.org/ss-command-in-linux/
+# basically // show me the TCP/UDP/listening/process-associated/numeric-address
