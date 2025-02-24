@@ -28,3 +28,10 @@ echo -e '\nOpen Ports:' >> $REPORT_FILE
 ss -tulpn | grep ':80' >> $REPORT_FILE
 # 'tulpn' is a mix of flags  | https://www.geeksforgeeks.org/ss-command-in-linux/
 # basically // show me the TCP/UDP/listening/process-associated/numeric-address
+
+# Suspicious log Entries : Check 3
+echo -e '\nRecent Suspicious Activity:' >> $REPORT_FILE
+tail -n 50 $LOG_FILE | grep -E '\.\./|/etc/passwd/union select' >> $REPORT_FILE
+# tail outputs the latest data from a file -n specifies how many lines to look back
+# grep -E is targeting Ext.Regular Expressions - these are combating 3 possible attack methods
+# In this order , Directory Traversal // Sensitive File Access // (1)SQL Injection
