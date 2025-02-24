@@ -14,3 +14,11 @@ __________          __           __________
         \/ \/                \/          \/           \/ 
  Automated Service Guardian v1.0
 " > $REPORT_FILE
+
+# Service Status : Check 1
+if systemctl is-active --quiet $SERVICE; then
+    echo "[+] Service Status: Running" >> $REPORT_FILE
+else
+    echo "[-] Service Status: NOT RUNNING!" >> $REPORT_FILE
+    systemctl start $SERVICE && echo "Service restarted" >> $REPORT_FILE
+fi  # fi denotes the end of 'if' logic code, including the else.
