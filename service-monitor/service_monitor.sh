@@ -35,3 +35,5 @@ tail -n 50 $LOG_FILE | grep -E '\.\./|/etc/passwd/union select' >> $REPORT_FILE
 # tail outputs the latest data from a file -n specifies how many lines to look back
 # grep -E is targeting Ext.Regular Expressions - these are combating 3 possible attack methods
 # In this order , Directory Traversal // Sensitive File Access // (1)SQL Injection
+
+# Outdated Version Alert : Check 4
