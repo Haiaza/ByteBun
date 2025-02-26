@@ -37,3 +37,8 @@ tail -n 50 $LOG_FILE | grep -E '\.\./|/etc/passwd/union select' >> $REPORT_FILE
 # In this order , Directory Traversal // Sensitive File Access // (1)SQL Injection
 
 # Outdated Version Alert : Check 4
+APACHE_VER=$(apache2 -v | grep -Po '(?<=Apache/)\d+\.\d+\.\d+')
+    if [[ $APACHE_VER < '2.4.41' ]]; then
+        echo -e '\n[!] SECURITY WARNING: Outdated Apache ($APACHE_VER)' >> $REPORT_FILE
+        echo 'Recommended action: sudo apt upgrade apache2' >> $REPORT_FILE
+    fi
