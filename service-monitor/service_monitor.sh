@@ -42,3 +42,7 @@ APACHE_VER=$(apache2 -v | grep -Po '(?<=Apache/)\d+\.\d+\.\d+')
         echo -e '\n[!] SECURITY WARNING: Outdated Apache ($APACHE_VER)' >> $REPORT_FILE
         echo 'Recommended action: sudo apt upgrade apache2' >> $REPORT_FILE
     fi
+
+# Final Report
+echo -e "\nReport generated: $(date)" >> $REPORT_FILE
+echo "Full report saved to $REPORT_FILE"
