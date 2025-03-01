@@ -14,3 +14,21 @@ curl -sO https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwo
 INPUT_FILE='weak_password.txt'
 COMMON_PASSWORDS='10k-most-common.txt'
 REPORT='password_report_$(date + %s)'
+
+# Functions 
+# Checking different things in the password
+# LVL UP ?? Follow the ( Sep 27, 2023 ) https://www.cisa.gov/secure-our-world/use-strong-passwords recommendations
+
+check_length() {
+    awk '{ if (length($0) < 10) print "❌ Too short: " $0 }' $INPUT_FILE
+}
+
+check_complexity() {
+    grep -E -v '(.*[A-Z].*[!@#$%^&*].*[0-9])' $INPUT_FILE | \
+    awk '{ print "⚠️ Weak complexity: " $0 }'
+}
+
+check_common() {
+    grep -F -f $COMMON_PASSWORDS $INPUT_FILE | \
+    awk '{ print "🚨 Common password: " $0 }'
+}
