@@ -49,4 +49,4 @@ check_common() {
     check_common
 } > $REPORT
 
-echo "Report Generated: $REPORT
+echo "Report Generated: $REPORT"
