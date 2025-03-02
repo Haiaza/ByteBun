@@ -32,3 +32,21 @@ check_common() {
     grep -F -f $COMMON_PASSWORDS $INPUT_FILE | \
     awk '{ print "🚨 Common password: " $0 }'
 }
+
+# Generate the report
+{
+    echo '=== Password Audit Report'
+    echo 'Scan date: $(date)'
+    echo '========================='
+
+    echo -e '\n[1] Length Check (<10 chars):'
+    check_length
+
+    echo -e '\n[2] Complexity Check (missing upper/special/num):'
+    check_complexity
+
+    echo -e '\n[3] Common Password Check:'
+    check_common
+} > $REPORT
+
+echo "Report Generated: $REPORT
